@@ -1,0 +1,32 @@
+name:                gcode
+version:             0.1
+license:             BSD3
+license-file:        LICENSE
+synopsis:            FIXME
+category:            FIXME
+author:              Keegan McAllister <mcallister.keegan@gmail.com>
+maintainer:          Keegan McAllister <mcallister.keegan@gmail.com>
+build-type:          Simple
+cabal-version:       >=1.6
+description:
+    FIXME
+
+extra-source-files:
+    README
+
+library
+  exposed-modules:
+      Data.GCode.Raw
+    , Data.GCode.Semantic
+  ghc-options:      -Wall
+  build-depends:
+      base   >= 3 && < 5
+    , pretty >= 1.0
+
+  other-extensions:
+      DeriveDataTypeable
+    , GeneralizedNewtypeDeriving
+
+source-repository head
+    type:     git
+    location: git://github.com/kmcallister/gcode
