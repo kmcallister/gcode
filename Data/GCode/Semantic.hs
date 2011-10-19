@@ -135,6 +135,10 @@ toRaw (File cmds) = R.File (map cmd cmds) where
     cmd (Comment xs) = R.Line [R.TComment xs]
     cmd c = R.Line $ map R.TWord (cw c)
 
+    g :: Rational -> [Position] -> [R.Word]
+    g n ps = w 'G' n : map f ps where
+        f (Pos axis value) = w (head $ show axis) value
+
     cw :: Command -> [R.Word]
 
     cw (Rapid        xs) = g 0    xs
@@ -188,10 +192,6 @@ toRaw (File cmds) = R.File (map cmd cmds) where
 
     cw (Other   _) = error "not possible"
     cw (Comment _) = error "not possible"
-
-    g :: Rational -> [Position] -> [R.Word]
-    g n ps = w 'G' n : map f ps where
-        f (Pos axis value) = w (head $ show axis) value
 
 
 -- | Convert semantic commands to concrete G-code syntax.
