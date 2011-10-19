@@ -22,9 +22,7 @@ import Text.PrettyPrint ( Doc )
 
 import qualified Data.GCode.Raw as R
 
--- | An axis of machine motion.
-data Axis = A | B | C | U | V | W | X | Y | Z | I | J | K
-    deriving (Eq, Ord, Read, Show, Typeable, Data, Enum, Bounded)
+import Data.GCode.Axes ( Axis(..), Position(..) )
 
 -- | A plane for arc motion.
 data Plane = XY | ZX | YZ | UV | WU | VW
@@ -55,10 +53,6 @@ data Coolant
     = Mist
     | Flood
     deriving (Eq, Ord, Read, Show, Typeable, Data, Enum, Bounded)
-
--- | Positioning of an axis.
-data Position = Pos Axis Rational
-    deriving (Eq, Ord, Read, Show, Typeable, Data)
 
 -- | Tolerance of deviation from programmed path.
 data PathTolerance
