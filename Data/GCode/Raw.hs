@@ -10,6 +10,7 @@ import Data.Typeable ( Typeable )
 import Data.Data     ( Data     )
 import Data.Monoid
 import Text.PrettyPrint hiding ( render )
+import Numeric
 
 
 -- | A G-code word.
@@ -41,5 +42,8 @@ newtype File = File [Line]
 render :: File -> Doc
 render (File lns) = vcat (map rLine lns) where
     rLine (Line xs) = hsep (map rTok xs)
-    rTok (TWord (Word c r)) = char c <> double (fromRational r)
+    rTok (TWord (Word c r)) = char c <> fmt (fromRational r)
     rTok (TComment xs) = parens (text xs)
+
+    fmt :: Double -> Doc
+    fmt x = text (showFFloat Nothing x "")
