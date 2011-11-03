@@ -1,9 +1,6 @@
-FIXME
+This is a Haskell library for producing G-code, which can be used to control
+CNC equipment.  It targets the flavor of G-code supported by EMC2:
 
-Documentation is hosted at http://hackage.haskell.org/package/FIXME
+    http://linuxcnc.org/docs/html/gcode_main.html
 
-To build the documentation yourself, run
-
-  $ cabal configure && cabal haddock --hyperlink-source
-
-This will produce HTML documentation under dist/doc/html/FIXME
+This library is a work in progress.
