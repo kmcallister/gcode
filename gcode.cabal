@@ -1,5 +1,5 @@
 name:                gcode
-version:             0.1
+version:             0.0
 license:             BSD3
 license-file:        LICENSE
 synopsis:            Produce G-code, used to control CNC equipment
